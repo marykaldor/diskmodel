@@ -1,0 +1,41 @@
+#---------------------------------------------------------------------
+#-t RELATIVISTIC ELLIPTICAL DISK MODEL
+#---------------------------------------------------------------------
+# Wavelength scale (6 pars)
+#---------------------------------------------------------------------
+4861	OLAMBDA       nominal wavelength of the line (Angstrom)
+4665	WAVEMIN       minimum wavelength (Angstrom)
+5110	WAVEMAX       maximum wavelength (Angstrom)
+s	WAVESCALE     wavelength scale format
+#                     ^(s=step, d=dat file, 2=2cu file, 3=3cu file)
+2	WAVESTEP      size of wavelength step (Angstrom)
+#                     ^[used if not reading from file]
+'/users/mce/spec/test.2ca'	WAVEFILE
+# ^ file with wavelength scale (in single quotes or "none")
+#   [if using path, write it all out, do not use environment variables]
+#---------------------------------------------------------------------
+# Integration, units, normalization (4 pars)
+#---------------------------------------------------------------------
+100	NSTEP         integration steps (integer, </= 400)
+max	NORMALIZATION profile normalization scheme (max/flux/none) [max]
+flam	FLUXUNITS     flux density units (fnu/flam) [fnu]
+ellmodel.dat	  OUTFILE
+# ^ output file where final model is written (in single quotes)
+#   [if using path, write it all out, do not use environment variables]
+#---------------------------------------------------------------------
+# Elliptical disk size and emission properties (7 pars)
+#---------------------------------------------------------------------
+2.0	Q1            inner emissivity powerlaw index
+1.2	Q2            outer emissivity powerlaw index
+800	XIB	      power-law index break radius (XIB=0 causes Q=Q2 throughout)
+19	ANGI          disk inclination angle (degrees)
+120	XI1           inner disk radius (GM/c^2)
+4500	XI2           outer disk radius (GM/c^2)
+700	BROAD         broadening parameter (km/s)
+#---------------------------------------------------------------------
+# Elliptical disk eccentricity and orientation (3 pars)
+#---------------------------------------------------------------------
+0.21	ELL		eccentricity (< 1), outer eccentricity if varying smoothly
+n	SMOOTH 		smoothly varying eccentricity (y/n)[n]
+40	PHI0		major axis orientation (0-360 deg)
+#---------------------------------------------------------------------

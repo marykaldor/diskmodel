@@ -1,0 +1,53 @@
+#---------------------------------------------------------------------
+#-t RELATIVISTIC CIRCULAR DISK MODEL
+#---------------------------------------------------------------------
+# Wavelength scale
+#---------------------------------------------------------------------
+4861	OLAMBDA       nominal wavelength of the line (Angstrom)
+4665	WAVEMIN       minimum wavelength (Angstrom)
+5110	WAVEMAX       maximum wavelength (Angstrom)
+s	WAVESCALE     wavelength scale format
+#                     ^(s=step, d=dat file, 2=2cu file, 3=3cu file)
+1.126	WAVESTEP      size of wavelength step (Angstrom)
+#                     ^[used if not reading from file]
+'/users/mce/spec/test.2ca'	WAVEFILE
+# ^ file with wavelength scale (in single quotes or "none")
+#   [if using path, write it all out, do not use environment variables]
+#---------------------------------------------------------------------
+# Integration, units, normalization
+#---------------------------------------------------------------------
+100	NSTEP         integration steps (integer, </= 400)
+y	RELATIVISTIC  include relativistic effects? (y/n) [y]
+max	NORMALIZATION profile normalization scheme (max/flux/none) [max]
+flam	FLUXUNITS     flux density units (fnu/flam) [fnu]
+model.dat	  OUTFILE
+# ^ output file where final model is written (in single quotes)
+#   [if using path, write it all out, do not use environment variables]
+#---------------------------------------------------------------------
+# Circular disk size and emission properties
+#---------------------------------------------------------------------
+2.0	Q1            inner emissivity powerlaw index
+1.1	Q2            outer emissivity powerlaw index
+10001	XIB	      power-law index break radius (XIB=2327 causes Q=Q2 throughout)
+19.80	ANGI          disk inclination angle (degrees)
+100.0	XI1           inner disk radius (GM/c^2)
+6556.542290346556	XI2           outer disk radius (GM/c^2)
+1000	BROAD         broadening parameter (km/s)
+#---------------------------------------------------------------------
+# Wind properties
+#---------------------------------------------------------------------
+1e-7	T0            optical depth normalization (0=no wind)
+0.	ETA           optical depth power-law index
+15	ANGLAM        wind opening angle (degrees)
+f	VERSION       formula for escape probability (f=Flohic, m=Murray)
+#---------------------------------------------------------------------
+# Spiral arms
+#---------------------------------------------------------------------
+3	AMP           contrast of spiral arm (0=no arms)
+1	NARMS         number of arms (integer)
+190	AOBS          spiral orientation (degrees, +ve=outer, -ve=inner)
+80	PITCH         pitch angle of spiral pattern (+ve=leading, -ve=trailing)
+72	WIDTH         angular width of arm (degrees)
+0	XISPIN        inner spiral arm radius radius (GM/c^2, 0=XI1)
+0	XISPOUT       outer spiral arm radius radius (GM/c^2, 0=XI2)
+#---------------------------------------------------------------------
